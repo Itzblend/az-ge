@@ -1,6 +1,6 @@
 VENV_PATH='az-ge/bin/activate'
 DOCKER_NAME='ds_great_expectations'
-DOCKER_TAG='0.0.1'
+DOCKER_TAG='0.0.2'
 AZURE_CONTAINER_REGISTRY='dndsregistry.azurecr.io'
 
 lint:
@@ -22,7 +22,6 @@ build:
 	docker build -t $(AZURE_CONTAINER_REGISTRY)/$(DOCKER_NAME):$(DOCKER_TAG) .
 
 push:
-	az acr login --name dndsregistry
 	docker push $(AZURE_CONTAINER_REGISTRY)/$(DOCKER_NAME):$(DOCKER_TAG)
 
 run:
