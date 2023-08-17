@@ -1,0 +1,3 @@
+great-expectations[azure]==0.17.9
+Flask==2.3.2
+python-dotenv==1.0.0

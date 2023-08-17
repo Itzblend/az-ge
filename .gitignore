@@ -1,0 +1,7 @@
+.vscode
+az-ge
+.env
+__pycache__
+*.sh
+great_expectations/uncommitted
+!great_expectations/uncommitted/config_variables.yml
