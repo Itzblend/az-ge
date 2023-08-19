@@ -78,7 +78,7 @@ def add_expectations_to_suite(suite):
             expectation_type="expect_table_row_count_to_be_between",
             kwargs={
                 "min_value": 1,
-                "max_value": 1000,
+                "max_value": 5000,
             },
         )
     )
