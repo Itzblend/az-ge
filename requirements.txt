@@ -1,3 +1,8 @@
 great-expectations[azure]==0.17.9
 Flask==2.3.2
 python-dotenv==1.0.0
+azure-common==1.1.28
+azure-core==1.29.2
+azure-identity==1.14.0
+azure-keyvault-secrets==4.7.0
+azure-storage-blob==12.17.0
