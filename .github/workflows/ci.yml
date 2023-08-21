@@ -11,16 +11,13 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-    environment: build_env
+
     steps:
     - uses: actions/checkout@v3
     - name: Set up Python 3.10
       uses: actions/setup-python@v4
       with:
         python-version: "3.10"
-
-    - name: testing env
-      run: echo $TESTING_VAR
 
     - name: Install dependencies
       run: |
