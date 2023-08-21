@@ -1,6 +1,6 @@
 VENV_PATH='az-ge/bin/activate'
 DOCKER_NAME='ds_great_expectations'
-DOCKER_TAG='0.0.2'
+DOCKER_TAG='0.0.3'
 AZURE_CONTAINER_REGISTRY='dndsregistry.azurecr.io'
 
 lint:
@@ -16,7 +16,7 @@ install:
 	pip install pytest
 
 env:
-	source .env
+	export $(cat .env | xargs)
 
 build:
 	docker build -t $(AZURE_CONTAINER_REGISTRY)/$(DOCKER_NAME):$(DOCKER_TAG) .

@@ -90,6 +90,14 @@ def add_expectations_to_suite(suite):
             },
         )
     )
+    suite.add_expectation(
+        ExpectationConfiguration(
+            expectation_type="expect_column_values_to_be_dateutil_parseable",
+            kwargs={
+                "column": "tpep_dropoff_datetime",
+            },
+        )
+    )
 
     return suite
 
@@ -143,8 +151,6 @@ def create_taxi_config():
 
     context.test_yaml_config(yaml.dump(checkpoint_config))
     context.add_or_update_checkpoint(**checkpoint_config)
-
-    context.run_checkpoint("taxi_checkpoint")
 
 
 def main():
