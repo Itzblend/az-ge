@@ -19,7 +19,7 @@ env:
 	export $(cat .env | xargs)
 
 build:
-	docker build -t $(AZURE_CONTAINER_REGISTRY)/$(DOCKER_NAME):$(DOCKER_TAG) .
+	docker build --no-cache -t $(AZURE_CONTAINER_REGISTRY)/$(DOCKER_NAME):$(DOCKER_TAG) .
 
 push:
 	docker push $(AZURE_CONTAINER_REGISTRY)/$(DOCKER_NAME):$(DOCKER_TAG)
