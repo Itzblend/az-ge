@@ -129,7 +129,6 @@ def create_taxi_config():
 
     # Datasource
     datasource_config = get_azure_datastore_config()
-
     context.test_yaml_config(yaml.dump(datasource_config))
     context.add_or_update_datasource(**datasource_config)
     # Checkpoint

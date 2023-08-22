@@ -50,11 +50,13 @@ stores:
 # Three stores are required: expectations, validations, and
 # evaluation_parameters, and must exist with a valid store entry. Additional
 # stores can be configured for uses such as data_docs, etc.
-  expectations_store:
+  expectations_AZ_store:
     class_name: ExpectationsStore
     store_backend:
-      class_name: TupleFilesystemStoreBackend
-      base_directory: expectations/
+      class_name: TupleAzureBlobStoreBackend
+      container: greatexpectations
+      prefix: expectations
+      connection_string: ${AZURE_STORAGE_CONNECTION_STRING}
 
   validations_store:
     class_name: ValidationsStore
@@ -78,7 +80,7 @@ stores:
       suppress_store_backend_id: true
       base_directory: profilers/
 
-expectations_store_name: expectations_store
+expectations_store_name: expectations_AZ_store
 validations_store_name: validations_store
 evaluation_parameter_store_name: evaluation_parameter_store
 checkpoint_store_name: checkpoint_store
@@ -102,7 +104,7 @@ data_docs_sites:
       class_name: DefaultSiteIndexBuilder
 
 anonymous_usage_statistics:
-  data_context_id: a4e0426f-5f48-4891-a1a8-a444adcd643d
+  data_context_id: 00000000-0000-0000-0000-00000000e003
   enabled: false
 notebooks:
 include_rendered_content:
