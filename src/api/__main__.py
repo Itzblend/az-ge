@@ -36,7 +36,7 @@ def checkpoint(checkpoint_name):
         run_name=f"{checkpoint_name}-{datetime.datetime.now().isoformat()}",
     )
 
-    return {"success": result["success"], "checkpoint_name": checkpoint_name}
+    return result.to_json_dict()
 
 
 @app.route("/suite/<suite_name>")
