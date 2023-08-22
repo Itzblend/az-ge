@@ -98,6 +98,16 @@ def add_expectations_to_suite(suite):
             },
         )
     )
+    suite.add_expectation(
+        ExpectationConfiguration(
+            expectation_type="expect_column_values_to_be_between",
+            kwargs={
+                "column": "trip_distance",
+                "min_value": 0,
+                "max_value": 100,
+            },
+        )
+    )
 
     return suite
 
