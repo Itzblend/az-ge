@@ -27,6 +27,7 @@ jobs:
     - name: Build GE configs
       env:
           AZURE_STORAGE_CONNECTION_STRING_TAXI: ${{ secrets.AZURE_STORAGE_CONNECTION_STRING_TAXI }}
+          SLACK_GX_WEBHOOK: ${{ secrets.SLACK_GX_WEBHOOK }}
       run: |
         python src/taxi.py
 
