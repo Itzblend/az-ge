@@ -16,6 +16,14 @@ action_list:
   - name: update_data_docs
     action:
       class_name: UpdateDataDocsAction
+  - name: send_slack_notification_on_validation_result
+    action:
+      class_name: SlackNotificationAction
+      slack_webhook: ${validation_notification_slack_webhook}
+      notify_on: all
+      renderer:
+        module_name: great_expectations.render.renderer.slack_renderer
+        class_name: SlackRenderer
 evaluation_parameters: {}
 runtime_configuration:
   result_format: COMPLETE
@@ -26,13 +34,13 @@ validations:
       datasource_name: taxi_azure_datastore
       data_connector_name: azure_data_connector
       data_asset_name: taxi_asset
-      data_connector_query:
-      limit:
       batch_spec_passthrough:
         reader_method: read_csv
         reader_options:
           header: 0
           sep: ','
+      limit:
+      data_connector_query:
     expectation_suite_name: taxi_suite
 profilers: []
 ge_cloud_id:

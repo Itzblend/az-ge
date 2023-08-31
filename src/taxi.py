@@ -1,6 +1,5 @@
 import great_expectations as ge
-from great_expectations.core.batch import BatchRequest, RuntimeBatchRequest
-from great_expectations.data_context import FileDataContext
+from great_expectations.core.batch import BatchRequest
 from great_expectations.util import get_context
 from great_expectations.core.expectation_configuration import ExpectationConfiguration
 
@@ -54,6 +53,18 @@ def get_checkpoint_config() -> dict:
             {
                 "name": "update_data_docs",
                 "action": {"class_name": "UpdateDataDocsAction"},
+            },
+            {
+                "name": "send_slack_notification_on_validation_result",
+                "action": {
+                    "class_name": "SlackNotificationAction",
+                    "slack_webhook": "${validation_notification_slack_webhook}",
+                    "notify_on": "all",
+                    "renderer": {
+                        "module_name": "great_expectations.render.renderer.slack_renderer",
+                        "class_name": "SlackRenderer",
+                    },
+                },
             },
         ],
     }

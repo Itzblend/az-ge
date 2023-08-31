@@ -6,3 +6,5 @@ azure-core==1.29.2
 azure-identity==1.14.0
 azure-keyvault-secrets==4.7.0
 azure-storage-blob==12.17.0
+psycopg2-binary==2.9.7
+SQLAlchemy==2.0.20

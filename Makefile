@@ -16,7 +16,7 @@ install:
 	pip install pytest
 
 env:
-	export $(cat .env | xargs)
+	export $$(cat .env | xargs)
 
 build:
 	docker build --no-cache -t $(AZURE_CONTAINER_REGISTRY)/$(DOCKER_NAME):$(DOCKER_TAG) .
