@@ -1,6 +1,6 @@
 VENV_PATH='az-ge/bin/activate'
 DOCKER_NAME='ds_great_expectations'
-DOCKER_TAG='0.0.3'
+DOCKER_TAG='0.0.4'
 AZURE_CONTAINER_REGISTRY='dndsregistry.azurecr.io'
 
 lint:
