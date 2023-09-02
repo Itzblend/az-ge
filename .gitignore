@@ -5,3 +5,9 @@ __pycache__
 *.sh
 great_expectations/uncommitted
 !great_expectations/uncommitted/config_variables.yml
+great_expectations/checkpoints/*
+!great_expectations/checkpoints/.gitkeep
+great_expectations/expectations/*
+!great_expectations/expectations/.ge_store_backend_id
+!great_expectations/profilers/*
+!great_expectations/profilers/.gitkeep
