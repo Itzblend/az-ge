@@ -34,7 +34,7 @@ jobs:
         python src/taxi.py
         
     - name: pwdls
-      run: pwd && ls
+      run: pwd && ls && cat great_expectations/checkpoints/taxi_checkpoint.yml
 
     - uses: actions/checkout@v3
     - name: Build the Docker image
