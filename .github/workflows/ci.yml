@@ -11,6 +11,8 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
+    container:
+      image: python:3.10
 
     steps:
     - uses: actions/checkout@v3
@@ -30,18 +32,6 @@ jobs:
           SLACK_GX_WEBHOOK: ${{ secrets.SLACK_GX_WEBHOOK }}
       run: |
         python src/taxi.py
-
-    - name: Upload output file
-      uses: actions/upload-artifact@v3
-      with:
-        name: checkpoints
-        path: great_expectations/checkpoints
-
-    - name: Download a single artifact
-      uses: actions/download-artifact@v3
-      needs: build
-      with:
-        name: checkpoints
 
     - uses: actions/checkout@v3
     - name: Build the Docker image
