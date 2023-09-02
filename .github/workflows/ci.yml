@@ -39,6 +39,7 @@ jobs:
 
     - name: Download a single artifact
       uses: actions/download-artifact@v3
+      needs: build
       with:
         name: checkpoints
 
