@@ -32,6 +32,9 @@ jobs:
           SLACK_GX_WEBHOOK: ${{ secrets.SLACK_GX_WEBHOOK }}
       run: |
         python src/taxi.py
+        
+    - name: pwdls
+      run: pwd && ls
 
     - uses: actions/checkout@v3
     - name: Build the Docker image
