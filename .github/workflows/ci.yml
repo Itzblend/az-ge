@@ -31,6 +31,17 @@ jobs:
       run: |
         python src/taxi.py
 
+    - name: Upload output file
+      uses: actions/upload-artifact@v3
+      with:
+        name: checkpoints
+        path: great_expectations/checkpoints
+
+    - name: Download a single artifact
+      uses: actions/download-artifact@v3
+      with:
+        name: checkpoints
+
     - uses: actions/checkout@v3
     - name: Build the Docker image
       run: make build
