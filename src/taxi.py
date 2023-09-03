@@ -161,7 +161,6 @@ def create_taxi_config():
     batch_request = get_azure_batch_request()
 
     context.save_expectation_suite(suite)
-
     checkpoint_config = add_batch_request_to_checkpoint(
         checkpoint_config, batch_request, "taxi_suite"
     )

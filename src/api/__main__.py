@@ -15,6 +15,8 @@ load_dotenv()
 
 app = flask.Flask(__name__)
 
+data_context: FileDataContext = get_context(context_root_dir="/app/great_expectations")
+
 
 @app.route("/")
 def index():
@@ -23,9 +25,6 @@ def index():
 
 @app.route("/checkpoint/<checkpoint_name>")
 def checkpoint(checkpoint_name):
-    data_context: FileDataContext = get_context(
-        context_root_dir="/app/great_expectations"
-    )
     checkpoints = data_context.list_checkpoints()
     if checkpoint_name not in checkpoints:
         return f"Checkpoint {checkpoint_name} does not exist!"
@@ -39,11 +38,15 @@ def checkpoint(checkpoint_name):
     return result.to_json_dict()
 
 
+@app.route("/checkpoints")
+def checkpoints():
+    checkpoints = data_context.list_checkpoints()
+
+    return {"checkpoints": checkpoints}
+
+
 @app.route("/suite/<suite_name>")
 def suite_details(suite_name):
-    data_context: FileDataContext = get_context(
-        context_root_dir="/app/great_expectations"
-    )
     suites = data_context.list_expectation_suites()
     suite_names = [suite.expectation_suite_name for suite in suites]
     if suite_name not in suite_names:
@@ -56,9 +59,6 @@ def suite_details(suite_name):
 
 @app.route("/suites")
 def suites():
-    data_context: FileDataContext = get_context(
-        context_root_dir="/app/great_expectations"
-    )
     suites = data_context.list_expectation_suites()
     suite_names = [suite.expectation_suite_name for suite in suites]
 
